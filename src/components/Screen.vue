@@ -1,6 +1,6 @@
 <template>
   <div id="screen" class="screen">
-
+    我是大屏
   </div>
 </template>
 
