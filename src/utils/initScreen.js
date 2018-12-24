@@ -1,7 +1,7 @@
 /**
  * Created by zhuzheng on 2017/9/22.
  */
-function initScreen (w, h, id) {
+function initScreen (w, h, id, type) {
   const bdw = document.body.clientWidth
   const bdh = document.body.clientHeight
   const bdP = bdw / bdh // 屏幕宽高比
@@ -29,6 +29,19 @@ function initScreen (w, h, id) {
       left:0;
     `
   }
+
+  if (window.location.href.includes('full') || type === 'full') {
+    screen.style.cssText = `
+      width: ${w}px;
+      height: ${h}px;
+      transform:scale(${bdw / w}, ${bdh / h});
+      transform-origin:0px 0px 0px;
+      position: absolute;
+      top:0;
+      left:0;
+    `
+  }
+
   window.addEventListener('resize', () => {
     let timer
     clearTimeout(timer)
